@@ -1,9 +1,9 @@
 from locations.request import create_location
-from customers.request import create_customer
+from customers.request import create_customer, update_customer
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from animals import get_all_animals, get_single_animal, create_animal, delete_animal, update_animal
-from locations import get_all_locations, get_single_location, create_location, delete_location
-from customers import get_all_customers, get_single_customer, create_customer, delete_customer
+from locations import get_all_locations, get_single_location, create_location, delete_location, update_location
+from customers import get_all_customers, get_single_customer, create_customer, delete_customer, update_customer
 import json
 
 
@@ -109,6 +109,12 @@ class HandleRequests(BaseHTTPRequestHandler):
         # Delete a single animal from the list
         if resource == "animals":
             update_animal(id, post_body)
+
+        if resource == "customers":
+            update_customer(id, post_body)
+
+        if resource == "locations":
+            update_location(id, post_body)
 
         # Encode the new animal and send in response
         self.wfile.write("".encode())

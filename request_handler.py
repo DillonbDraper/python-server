@@ -85,10 +85,10 @@ class HandleRequests(BaseHTTPRequestHandler):
             new_resource = create_animal(post_body)
 
         if resource == "customers":
-            new_resource == create_customer(post_body)
+            new_resource = create_customer(post_body)
 
         if resource == "locations":
-            new_resource == create_location(post_body)
+            new_resource = create_location(post_body)
 
         # Encode the new animal and send in response
 
